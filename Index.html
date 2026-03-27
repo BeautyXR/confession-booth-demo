@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Confession Booth MCR — Alternative Nail Studio Manchester</title>
+<meta name="description" content="Manchester's female-owned alternative nail studio. Goth glam, Y2K chaos, BIAB, junk nails & custom hand-painted art. Vegan & cruelty-free. Book direct.">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black: #080808;
+  --charcoal: #101010;
+  --card: #141414;
+  --pink: #ff1a6e;
+  --pink-glow: rgba(255,26,110,0.35);
+  --burgundy: #5c0a15;
+  --neon-green: #39ff14;
+  --chrome: #b8b8b8;
+  --gold: #d4a843;
+  --white: #f0eaea;
+  --muted: #666;
+  --border: rgba(255,255,255,0.07);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { background:var(--black); color:var(--white); font-family:'Inter',sans-serif; overflow-x:hidden; cursor:default; }
+
+/* SCROLLBAR */
+::-webkit-scrollbar { width:4px; }
+::-webkit-scrollbar-track { background:var(--black); }
+::-webkit-scrollbar-thumb { background:var(--pink); border-radius:2px; }
+
+/* NAV */
+nav {
+  position:fixed; top:0; width:100%; z-index:999;
+  background:rgba(8,8,8,0.95); backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(255,26,110,0.2);
+  padding:0 48px; height:68px;
+  display:flex; align-items:center; justify-content:space-between;
+}
+.nav-logo {
+  font-family:'Bebas Neue',sans-serif; font-size:1.5rem;
+  color:var(--white); letter-spacing:4px; text-decoration:none;
+  display:flex; align-items:center; gap:10px;
+}
+.nav-logo span { color:var(--pink); }
+.nav-links { display:flex; gap:36px; list-style:none; align-items:center; }
+.nav-links a {
+  color:var(--chrome); text-decoration:none; font-size:0.72rem;
+  letter-spacing:3px; text-transform:uppercase; transition:color 0.2s;
+}
+.nav-links a:hover { color:var(--pink); }
+.nav-book {
+  background:var(--pink); color:#fff; padding:10px 24px;
+  font-size:0.68rem; letter-spacing:3px; text-transform:uppercase;
+  font-weight:600; text-decoration:none; border-radius:2px;
+  transition:all 0.2s; white-space:nowrap;
+}
+.nav-book:hover { background:#ff4d8f; box-shadow:0 0 20px var(--pink-glow); }
+
+/* HERO */
+.hero {
+  min-height:100vh; display:flex; flex-direction:column;
+  justify-content:flex-end; align-items:flex-start;
+  padding:0 80px 100px; position:relative; overflow:hidden;
+}
+.hero-bg {
+  position:absolute; inset:0; z-index:0;
+  background:
+    radial-gradient(ellipse 100% 70% at 50% -10%, rgba(255,26,110,0.22) 0%, transparent 65%),
+    radial-gradient(ellipse 60% 50% at 90% 90%, rgba(92,10,21,0.4) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 10% 60%, rgba(57,255,20,0.04) 0%, transparent 55%),
+    linear-gradient(180deg, #080808 0%, #0d0508 100%);
+}
+.hero-noise {
+  position:absolute; inset:0; z-index:1; opacity:0.03;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+.hero-content { position:relative; z-index:2; max-width:900px; }
+
+.hero-eyebrow {
+  display:inline-flex; align-items:center; gap:10px;
+  border:1px solid rgba(255,26,110,0.35); color:var(--pink);
+  font-size:0.65rem; letter-spacing:5px; text-transform:uppercase;
+  padding:8px 18px; border-radius:100px; margin-bottom:36px;
+  background:rgba(255,26,110,0.06);
+}
+.hero-eyebrow::before { content:'⚔'; font-size:0.75rem; }
+
+.hero h1 {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(5rem, 14vw, 13rem);
+  line-height:0.9; letter-spacing:6px;
+  color:var(--white); margin-bottom:8px;
+}
+.hero h1 .pink { color:var(--pink); }
+.hero h1 .outline {
+  -webkit-text-stroke:2px rgba(255,255,255,0.25);
+  color:transparent;
+}
+
+.hero-tagline {
+  font-family:'Playfair Display', serif; font-style:italic;
+  font-size:clamp(1rem, 2.2vw, 1.5rem);
+  color:rgba(240,234,234,0.55); margin-bottom:48px;
+  letter-spacing:1px;
+}
+
+.hero-actions { display:flex; gap:16px; flex-wrap:wrap; margin-bottom:56px; }
+
+.btn-sin {
+  background:var(--pink); color:#fff; padding:18px 48px;
+  font-family:'Bebas Neue',sans-serif; font-size:1.1rem;
+  letter-spacing:4px; text-decoration:none; border-radius:2px;
+  transition:all 0.25s; border:none; cursor:pointer; display:inline-block;
+}
+.btn-sin:hover { background:#ff4d8f; box-shadow:0 8px 40px var(--pink-glow); transform:translateY(-2px); }
+
+.btn-outline {
+  background:transparent; color:var(--white);
+  border:1px solid rgba(255,255,255,0.2); padding:18px 48px;
+  font-family:'Bebas Neue',sans-serif; font-size:1.1rem;
+  letter-spacing:4px; text-decoration:none; border-radius:2px;
+  transition:all 0.25s; display:inline-block;
+}
+.btn-outline:hover { border-color:var(--pink); color:var(--pink); }
+
+.hero-tags { display:flex; gap:10px; flex-wrap:wrap; }
+.htag {
+  font-size:0.63rem; letter-spacing:2px; text-transform:uppercase;
+  padding:6px 14px; border-radius:100px; border:1px solid var(--border);
+  color:var(--muted);
+}
+.htag.v { border-color:rgba(57,255,20,0.25); color:var(--neon-green); }
+.htag.p { border-color:rgba(255,26,110,0.3); color:var(--pink); }
+
+/* MARQUEE */
+.marquee-wrap {
+  overflow:hidden; background:var(--pink); padding:14px 0;
+  border-top:none; border-bottom:none;
+}
+.marquee-track {
+  display:flex; width:max-content;
+  animation:marquee 22s linear infinite;
+}
+.marquee-track span {
+  font-family:'Bebas Neue',sans-serif; font-size:1rem;
+  letter-spacing:5px; color:#fff; white-space:nowrap;
+  padding:0 32px;
+}
+.marquee-track .dot { color:rgba(255,255,255,0.4); }
+@keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+/* SECTION BASE */
+.section { padding:110px 80px; max-width:1400px; margin:0 auto; }
+.s-label {
+  font-size:0.62rem; letter-spacing:6px; text-transform:uppercase;
+  color:var(--pink); margin-bottom:14px; display:flex; align-items:center; gap:10px;
+}
+.s-label::before { content:''; width:24px; height:1px; background:var(--pink); display:block; }
+h2.heading {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(2.5rem, 5vw, 4.5rem);
+  letter-spacing:4px; line-height:1; margin-bottom:24px;
+}
+
+/* DIVIDER */
+.line { width:100%; height:1px; background:linear-gradient(90deg, transparent, rgba(255,26,110,0.3), transparent); }
+
+/* ABOUT */
+.about-grid { display:grid; grid-template-columns:1fr 1.1fr; gap:100px; align-items:center; }
+.about-text p { color:rgba(240,234,234,0.6); line-height:1.9; font-size:0.95rem; margin-bottom:18px; }
+.about-pills { display:flex; gap:12px; flex-wrap:wrap; margin-top:32px; }
+.pill {
+  padding:8px 20px; border-radius:100px; font-size:0.68rem;
+  letter-spacing:2px; text-transform:uppercase;
+}
+.pill.green { background:rgba(57,255,20,0.08); border:1px solid rgba(57,255,20,0.25); color:var(--neon-green); }
+.pill.pink { background:rgba(255,26,110,0.08); border:1px solid rgba(255,26,110,0.3); color:var(--pink); }
+.pill.chrome { background:rgba(184,184,184,0.06); border:1px solid rgba(184,184,184,0.2); color:var(--chrome); }
+
+.stats-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:2px; margin-top:48px; }
+.stat {
+  background:var(--card); padding:32px 28px;
+  border:1px solid var(--border); transition:border-color 0.3s;
+}
+.stat:hover { border-color:rgba(255,26,110,0.25); }
+.stat-n {
+  font-family:'Bebas Neue',sans-serif; font-size:3rem;
+  color:var(--pink); letter-spacing:2px; line-height:1;
+  margin-bottom:6px; display:block;
+}
+.stat-l { font-size:0.65rem; letter-spacing:3px; text-transform:uppercase; color:var(--muted); }
+
+.about-right { position:relative; }
+.about-img-card {
+  background:var(--card); border:1px solid rgba(255,26,110,0.15);
+  border-radius:4px; overflow:hidden; position:relative;
+}
+.about-img-placeholder {
+  aspect-ratio:4/5; background:linear-gradient(135deg, #0d0008 0%, #1a0010 30%, #2d0020 60%, #1a0010 100%);
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  font-size:6rem; color:rgba(255,26,110,0.3);
+}
+.about-img-caption {
+  padding:20px 24px; font-size:0.72rem; letter-spacing:2px;
+  text-transform:uppercase; color:var(--muted);
+  border-top:1px solid var(--border);
+}
+.about-float {
+  position:absolute; bottom:-20px; right:-20px;
+  background:var(--pink); padding:20px 24px; border-radius:4px;
+}
+.about-float-text {
+  font-family:'Bebas Neue',sans-serif; font-size:1.1rem;
+  letter-spacing:3px; color:#fff;
+}
+
+/* SERVICES */
+.services-bg { background:var(--charcoal); }
+.services-bg .section { max-width:1400px; }
+.services-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; margin-top:64px; background:var(--border); border:1px solid var(--border); }
+.srv {
+  background:var(--charcoal); padding:44px 36px;
+  transition:background 0.3s; position:relative; overflow:hidden;
+}
+.srv::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:2px;
+  background:linear-gradient(90deg, var(--pink), var(--burgundy));
+  transform:scaleX(0); transform-origin:left; transition:transform 0.4s;
+}
+.srv:hover { background:#161616; }
+.srv:hover::before { transform:scaleX(1); }
+.srv-icon { font-size:2.2rem; margin-bottom:20px; display:block; }
+.srv h3 { font-family:'Bebas Neue',sans-serif; font-size:1.5rem; letter-spacing:3px; margin-bottom:12px; }
+.srv p { color:var(--muted); font-size:0.82rem; line-height:1.8; margin-bottom:28px; }
+.srv-price { font-family:'Bebas Neue',sans-serif; font-size:1.4rem; color:var(--pink); letter-spacing:2px; }
+.srv-tag { font-size:0.6rem; letter-spacing:2px; text-transform:uppercase; color:var(--muted); margin-left:8px; }
+
+/* GALLERY */
+.gallery-filters {
+  display:flex; gap:10px; flex-wrap:wrap; margin-top:48px; margin-bottom:32px;
+}
+.gf-btn {
+  padding:8px 20px; border-radius:100px; font-size:0.65rem; letter-spacing:2px;
+  text-transform:uppercase; border:1px solid var(--border); color:var(--muted);
+  background:transparent; cursor:pointer; transition:all 0.2s; font-family:'Inter',sans-serif;
+}
+.gf-btn.active, .gf-btn:hover {
+  border-color:var(--pink); color:var(--pink); background:rgba(255,26,110,0.08);
+}
+.masonry {
+  columns:3; gap:12px; column-gap:12px;
+}
+.masonry-item {
+  break-inside:avoid; margin-bottom:12px;
+  border-radius:6px; overflow:hidden; cursor:pointer;
+  position:relative; transition:transform 0.3s;
+}
+.masonry-item:hover { transform:scale(1.02); }
+.masonry-item:hover .gallery-overlay { opacity:1; }
+.gallery-tile {
+  width:100%; display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  font-size:3rem; background:var(--card); border:1px solid var(--border);
+}
+.gallery-tile.tall { height:380px; }
+.gallery-tile.short { height:220px; }
+.gallery-tile.med { height:300px; }
+.gt1 { background:linear-gradient(160deg,#0d0000,#2a0010,#1a0008); }
+.gt2 { background:linear-gradient(160deg,#000010,#10003a,#200060); }
+.gt3 { background:linear-gradient(160deg,#080808,#1a0010,#3d0030); }
+.gt4 { background:linear-gradient(160deg,#100000,#3d0000,#1a0000); }
+.gt5 { background:linear-gradient(160deg,#001000,#003010,#005020); }
+.gt6 { background:linear-gradient(160deg,#100010,#2d0040,#4d0080); }
+.gt7 { background:linear-gradient(160deg,#1a0a00,#3d2000,#5a3000); }
+.gt8 { background:linear-gradient(160deg,#000a10,#001a30,#002a50); }
+.gallery-overlay {
+  position:absolute; inset:0;
+  background:linear-gradient(0deg, rgba(0,0,0,0.8) 0%, transparent 60%);
+  opacity:0; transition:opacity 0.3s;
+  display:flex; align-items:flex-end; padding:20px;
+}
+.gallery-ol-text { font-size:0.65rem; letter-spacing:2px; text-transform:uppercase; color:var(--chrome); }
+
+/* TESTIMONIALS */
+.testi-bg { background:var(--charcoal); }
+.testi-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:64px; }
+.testi-card {
+  background:var(--black); border:1px solid var(--border);
+  border-radius:4px; padding:32px 28px; position:relative;
+  transition:border-color 0.3s;
+}
+.testi-card:hover { border-color:rgba(255,26,110,0.25); }
+.testi-quote {
+  font-family:'Playfair Display',serif; font-style:italic;
+  font-size:0.92rem; color:rgba(240,234,234,0.75);
+  line-height:1.8; margin-bottom:24px;
+}
+.testi-quote::before { content:'"'; color:var(--pink); font-size:2rem; line-height:0; vertical-align:-0.5rem; margin-right:4px; }
+.testi-stars { color:var(--pink); font-size:0.85rem; margin-bottom:12px; letter-spacing:2px; }
+.testi-author { font-size:0.7rem; letter-spacing:2px; text-transform:uppercase; color:var(--muted); }
+
+/* BOOKING */
+.booking-section {
+  text-align:center; padding:130px 80px;
+  background:linear-gradient(180deg, var(--black) 0%, rgba(92,10,21,0.12) 50%, var(--black) 100%);
+  position:relative; overflow:hidden;
+}
+.booking-cross {
+  position:absolute; font-size:600px; opacity:0.012;
+  top:50%; left:50%; transform:translate(-50%,-50%);
+  color:var(--pink); pointer-events:none; user-select:none;
+  font-family:serif; line-height:1;
+}
+.booking-inner { position:relative; z-index:1; max-width:720px; margin:0 auto; }
+.booking-inner h2 { font-size:clamp(3rem,7vw,6rem); margin-bottom:20px; }
+.booking-inner p { color:rgba(240,234,234,0.5); font-size:1rem; line-height:1.9; margin-bottom:52px; }
+.booking-note {
+  margin-top:40px; font-size:0.72rem; letter-spacing:1px;
+  color:rgba(240,234,234,0.25); display:flex; align-items:center;
+  justify-content:center; gap:8px;
+}
+.booking-note::before { content:'📍'; }
+
+/* FAQ */
+.faq-wrap { margin-top:64px; max-width:800px; }
+.faq-item { border-bottom:1px solid var(--border); }
+.faq-q {
+  padding:28px 0; font-family:'Playfair Display',serif;
+  font-size:1.05rem; color:var(--white); cursor:pointer;
+  display:flex; justify-content:space-between; align-items:center;
+  transition:color 0.2s;
+}
+.faq-q:hover { color:var(--pink); }
+.faq-icon { color:var(--pink); font-size:1.2rem; transition:transform 0.3s; }
+.faq-a { color:var(--muted); font-size:0.87rem; line-height:1.9; padding:0 0 24px; display:none; }
+.faq-item.open .faq-a { display:block; }
+.faq-item.open .faq-icon { transform:rotate(45deg); }
+
+/* FOOTER */
+footer {
+  background:var(--charcoal);
+  border-top:1px solid rgba(255,26,110,0.12);
+  padding:80px 80px 48px;
+}
+.footer-top { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:60px; margin-bottom:60px; }
+.footer-brand {}
+.footer-logo-text {
+  font-family:'Bebas Neue',sans-serif; font-size:2rem;
+  letter-spacing:5px; color:var(--white); margin-bottom:12px; display:block;
+}
+.footer-logo-text span { color:var(--pink); }
+.footer-desc { color:var(--muted); font-size:0.82rem; line-height:1.8; margin-bottom:20px; }
+.footer-badges-sm { display:flex; gap:8px; flex-wrap:wrap; }
+.fb { font-size:0.6rem; letter-spacing:2px; text-transform:uppercase; padding:5px 12px; border-radius:100px; border:1px solid rgba(57,255,20,0.2); color:var(--neon-green); background:rgba(57,255,20,0.04); }
+.footer-col h4 { font-family:'Bebas Neue',sans-serif; font-size:1rem; letter-spacing:3px; color:var(--chrome); margin-bottom:20px; }
+.footer-col ul { list-style:none; }
+.footer-col ul li { margin-bottom:12px; }
+.footer-col ul a { color:var(--muted); text-decoration:none; font-size:0.8rem; transition:color 0.2s; }
+.footer-col ul a:hover { color:var(--pink); }
+.footer-bottom {
+  display:flex; justify-content:space-between; align-items:center;
+  border-top:1px solid var(--border); padding-top:32px; flex-wrap:wrap; gap:16px;
+}
+.footer-copy { color:rgba(102,102,102,0.5); font-size:0.7rem; letter-spacing:1px; }
+.footer-ig { color:var(--pink); font-size:0.7rem; letter-spacing:2px; text-decoration:none; text-transform:uppercase; }
+.footer-ig:hover { color:var(--pink-glow); }
+
+/* SCROLL FADE */
+.reveal { opacity:0; transform:translateY(40px); transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1); }
+.reveal.in { opacity:1; transform:translateY(0); }
+.reveal.delay-1 { transition-delay:0.1s; }
+.reveal.delay-2 { transition-delay:0.2s; }
+.reveal.delay-3 { transition-delay:0.3s; }
+
+/* RESPONSIVE */
+@media(max-width:900px) {
+  .hero { padding:0 28px 80px; }
+  .section { padding:80px 28px; }
+  .about-grid { grid-template-columns:1fr; gap:48px; }
+  .services-grid { grid-template-columns:1fr 1fr; }
+  .masonry { columns:2; }
+  .testi-grid { grid-template-columns:1fr; }
+  .footer-top { grid-template-columns:1fr 1fr; gap:40px; }
+  nav { padding:0 24px; }
+  .nav-links { display:none; }
+  .booking-section { padding:100px 28px; }
+  footer { padding:60px 28px 40px; }
+}
+@media(max-width:600px) {
+  .masonry { columns:1; }
+  .services-grid { grid-template-columns:1fr; }
+  .stats-grid { grid-template-columns:1fr 1fr; }
+  .footer-top { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">Confession <span>Booth</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">The Booth</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <a href="#book" class="nav-book">Book Your Sin ⚔</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-noise"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Manchester's Alternative Nail Studio</div>
+    <h1>
+      <span class="pink">Confession</span><br>
+      <span class="outline">Booth</span>
+    </h1>
+    <p class="hero-tagline">Goth glam. Y2K chaos. Your claws, your rules.</p>
+    <div class="hero-actions">
+      <a href="#book" class="btn-sin">Book Your Sin</a>
+      <a href="#gallery" class="btn-outline">View Our Work</a>
+    </div>
+    <div class="hero-tags">
+      <span class="htag p">Alternative Nail Art</span>
+      <span class="htag">Female Owned</span>
+      <span class="htag v">🌱 Vegan</span>
+      <span class="htag v">🐰 Cruelty Free</span>
+      <span class="htag">Manchester M2</span>
+      <span class="htag p">🏳️‍🌈 Inclusive</span>
+    </div>
+  </div>
+</div>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span>GOTH GLAM</span><span class="dot">✝</span>
+    <span>Y2K CHAOS</span><span class="dot">✝</span>
+    <span>JUNK NAILS</span><span class="dot">✝</span>
+    <span>HAND PAINTED ART</span><span class="dot">✝</span>
+    <span>CHROME & CAT EYE</span><span class="dot">✝</span>
+    <span>BIAB SPECIALIST</span><span class="dot">✝</span>
+    <span>3D & CHARMS</span><span class="dot">✝</span>
+    <span>VEGAN & CRUELTY FREE</span><span class="dot">✝</span>
+    <span>MANCHESTER CITY CENTRE</span><span class="dot">✝</span>
+    <!-- duplicate for seamless loop -->
+    <span>GOTH GLAM</span><span class="dot">✝</span>
+    <span>Y2K CHAOS</span><span class="dot">✝</span>
+    <span>JUNK NAILS</span><span class="dot">✝</span>
+    <span>HAND PAINTED ART</span><span class="dot">✝</span>
+    <span>CHROME & CAT EYE</span><span class="dot">✝</span>
+    <span>BIAB SPECIALIST</span><span class="dot">✝</span>
+    <span>3D & CHARMS</span><span class="dot">✝</span>
+    <span>VEGAN & CRUELTY FREE</span><span class="dot">✝</span>
+    <span>MANCHESTER CITY CENTRE</span><span class="dot">✝</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div class="line"></div>
+<div class="section" id="about">
+  <div class="about-grid reveal">
+    <div>
+      <div class="s-label">The Booth</div>
+      <h2 class="heading">Not Your Average<br>Nail Studio</h2>
+      <p>Confession Booth is Manchester's female-owned, inclusive alternative nail studio — a space built for anyone who refuses to blend in. We specialise in bold, creative, unapologetically loud nail art.</p>
+      <p>From goth-glam to Y2K chaos, intricate hand-painted designs to 3D junk nails — our artists bring your wildest ideas to life. No judgment. No boring sets. Ever.</p>
+      <div class="about-pills">
+        <span class="pill green">🌱 100% Vegan</span>
+        <span class="pill green">🐰 Cruelty Free</span>
+        <span class="pill pink">⚔ Alternative</span>
+        <span class="pill chrome">♀ Female Owned</span>
+        <span class="pill pink">🏳️‍🌈 Inclusive Space</span>
+      </div>
+      <div class="stats-grid">
+        <div class="stat"><span class="stat-n">5.0★</span><span class="stat-l">Rating on Google</span></div>
+        <div class="stat"><span class="stat-n">31+</span><span class="stat-l">Happy Clients</span></div>
+        <div class="stat"><span class="stat-n">219+</span><span class="stat-l">Nail Art Posts</span></div>
+        <div class="stat"><span class="stat-n">2K+</span><span class="stat-l">IG Followers</span></div>
+      </div>
+    </div>
+    <div class="about-right">
+      <div class="about-img-card">
+        <div class="about-img-placeholder">💀</div>
+        <div class="about-img-caption">4th Floor · Lloyd St · Manchester M2 5WA</div>
+      </div>
+      <div class="about-float">
+        <div class="about-float-text">Book Direct → Zero Commission</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<div class="line"></div>
+<div class="services-bg">
+  <div class="section" id="services" style="max-width:100%;padding-left:80px;padding-right:80px;">
+    <div class="reveal">
+      <div class="s-label">What We Do</div>
+      <h2 class="heading">Our Services</h2>
+    </div>
+    <div class="services-grid reveal">
+      <div class="srv">
+        <span class="srv-icon">🖤</span>
+        <h3>Nail Art Levels</h3>
+        <p>From subtle dark accents to full thematic masterpieces. Tiered levels mean options for every budget and boldness level.</p>
+        <div><span class="srv-price">From £35</span><span class="srv-tag">/ see levels on IG</span></div>
+      </div>
+      <div class="srv">
+        <span class="srv-icon">💅</span>
+        <h3>Full Sets & BIAB</h3>
+        <p>Acrylics, gel extensions, BIAB — built to last and designed to turn heads. Custom shapes, lengths, and finishes.</p>
+        <div><span class="srv-price">From £55</span></div>
+      </div>
+      <div class="srv">
+        <span class="srv-icon">✨</span>
+        <h3>Junk Nails & 3D</h3>
+        <p>Pom-poms, charms, crystals, mixed media. Maximalist, theatrical, completely one-of-a-kind sets that live rent-free in people's heads.</p>
+        <div><span class="srv-price">From £75</span></div>
+      </div>
+      <div class="srv">
+        <span class="srv-icon">🔮</span>
+        <h3>Chrome & Cat Eye</h3>
+        <p>Thermal colour-shift, holographic mirror chrome, magnetic cat-eye, and galaxy effects. Nails that change with the light.</p>
+        <div><span class="srv-price">From £45</span></div>
+      </div>
+      <div class="srv">
+        <span class="srv-icon">🎨</span>
+        <h3>Hand-Painted Art</h3>
+        <p>Freehand characters, portraits, patterns, and scenes. Our artists are illustrators first — the nail is just the canvas.</p>
+        <div><span class="srv-price">From £65</span></div>
+      </div>
+      <div class="srv">
+        <span class="srv-icon">💀</span>
+        <h3>Themed Sets</h3>
+        <p>Halloween horror, goth glam, Y2K revival, seasonal specials. Book ahead — limited slots for themed collections.</p>
+        <div><span class="srv-price">From £80</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- GALLERY -->
+<div class="line"></div>
+<div class="section" id="gallery">
+  <div class="reveal">
+    <div class="s-label">Our Work</div>
+    <h2 class="heading">The Gallery</h2>
+    <p style="color:var(--muted);font-size:0.88rem;">Every set is a conversation. Every client, iconic.</p>
+  </div>
+  <div class="gallery-filters reveal">
+    <button class="gf-btn active">All</button>
+    <button class="gf-btn">Goth</button>
+    <button class="gf-btn">Y2K</button>
+    <button class="gf-btn">3D Junk</button>
+    <button class="gf-btn">Chrome</button>
+    <button class="gf-btn">Themed</button>
+    <button class="gf-btn">Natural Growth</button>
+  </div>
+  <div class="masonry reveal">
+    <div class="masonry-item">
+      <div class="gallery-tile tall gt1">💀</div>
+      <div class="gallery-overlay"><span class="gallery-ol-text">Gothic Glam · Book This →</span></div>
+    </div>
+    <div class="masonry-item">
+      <div class="gallery-tile short gt2">🔮</div>
+      <div class="gallery-overlay"><span class="gallery-ol-text">Cat Eye Chrome</span></div>
+    </div>
+    <div class="masonry-item">
+      <div class="gallery-tile med gt3">✨</div>
+      <div class="gallery-overlay"><span class="gallery-ol-text">Junk Nails · 3D</span></div>
+    </div>
+    <div class="masonry-item">
+      <div class="gallery-tile short gt4">🩸</div>
+      <div class="gallery-overlay"><span class="gallery-ol-text">Dark Art</span></div>
+    </div>
+    <div class="masonry-item">
+      <div class="gallery-tile tall gt5">🌿</div>
+      <div class="gallery-overlay"><span class="gallery-ol-text">Natural Growth</span></div>
+    </div>
+    <div class="masonry-item">
+      <div class="gallery-tile med gt6">☠️</div>
+      <div class="gallery-overlay"><span class="gallery-ol-text">Y2K Chaos</span></div>
+    </div>
+    <div class="masonry-item">
+      <div class="gallery-tile short gt7">🎨</div>
+      <div class="gallery-overlay"><span class="gallery-ol-text">Hand Painted</span></div>
+    </div>
+    <div class="masonry-item">
+      <div class="gallery-tile tall gt8">⚔️</div>
+      <div class="gallery-overlay"><span class="gallery-ol-text">Custom Themed Set</span></div>
+    </div>
+    <div class="masonry-item">
+      <div class="gallery-tile med gt1">🖤</div>
+      <div class="gallery-overlay"><span class="gallery-ol-text">Gothic Minimal</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<div class="line"></div>
+<div class="testi-bg">
+  <div class="section" id="reviews" style="max-width:100%;padding-left:80px;padding-right:80px;">
+    <div class="reveal">
+      <div class="s-label">What They Say</div>
+      <h2 class="heading">5.0 Stars Across<br>The Board</h2>
+    </div>
+    <div class="testi-grid reveal">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-quote">Elena helped me grow my natural nails and now they're healthier than ever! The art she created was absolutely insane — nothing like it anywhere else in Manchester.</div>
+        <div class="testi-author">Google Review · 5 Stars</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-quote">Literally the most creative nail studio I've ever been to. The Krampus Christmas set was a masterpiece. Booked again before I even left the chair.</div>
+        <div class="testi-author">Google Review · 5 Stars</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-quote">Finally a studio that actually gets alternative aesthetics. No judging, no trying to talk you into something "safer". Just pure creative freedom. Obsessed.</div>
+        <div class="testi-author">Google Review · 5 Stars</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BOOKING -->
+<div class="booking-section" id="book">
+  <div class="booking-cross">✝</div>
+  <div class="booking-inner reveal">
+    <div class="s-label" style="justify-content:center;">Ready to Confess?</div>
+    <h2 class="heading">Book Your<br><span style="color:var(--pink)">Sin</span></h2>
+    <p>Slots fill up fast. Book direct below — no platform fees, no middleman. Just you, the booth, and the best nail art in Manchester.</p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+      <a href="#" class="btn-sin">Book Now — Direct</a>
+      <a href="https://instagram.com/confessionbooth_mcr" target="_blank" class="btn-outline">Follow the Chaos</a>
+    </div>
+    <div class="booking-note">4th Floor, 18–22 Lloyd St, Manchester M2 5WA</div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="line"></div>
+<div class="section" id="faq">
+  <div class="s-label">Got Questions</div>
+  <h2 class="heading">FAQ</h2>
+  <div class="faq-wrap reveal">
+    <div class="faq-item open">
+      <div class="faq-q" onclick="toggleFaq(this)">Are all products vegan and cruelty-free? <span class="faq-icon">+</span></div>
+      <div class="faq-a">Yes — always, no exceptions. We only use vegan, cruelty-free products across every single service. It's non-negotiable for us.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">How far in advance should I book? <span class="faq-icon">+</span></div>
+      <div class="faq-a">We recommend 1–2 weeks minimum, especially for complex themed or junk nail sets. Popular time slots go fast — don't sleep on it.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">What are your nail art levels? <span class="faq-icon">+</span></div>
+      <div class="faq-a">We have tiered levels from simple statement accents all the way up to full custom hand-painted masterpieces and 3D junk sets. Check our Instagram highlights for the full breakdown with pricing examples.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Is the studio inclusive? Can anyone book? <span class="faq-icon">+</span></div>
+      <div class="faq-a">Absolutely everyone is welcome. We're a genuinely inclusive space — whether it's your very first time getting nail art or you're a regular, all identities, all nail types, all vibes.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Where exactly are you located? <span class="faq-icon">+</span></div>
+      <div class="faq-a">We're on the 4th Floor at 18–22 Lloyd St, Manchester M2 5WA. Right in the city centre — easy to find once you know where to look!</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Do you offer nail extensions? <span class="faq-icon">+</span></div>
+      <div class="faq-a">Yes! We offer BIAB, gel extensions, and acrylic sets. We specialise in building length that works for your lifestyle, with art that makes them impossible to ignore.</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <span class="footer-logo-text">Confession <span>Booth</span></span>
+      <p class="footer-desc">Manchester's female-owned alternative nail studio. Goth glam, Y2K chaos, hand-painted art & junk nails. Vegan & cruelty-free. Always.</p>
+      <div class="footer-badges-sm">
+        <span class="fb">🌱 Vegan</span>
+        <span class="fb">🐰 Cruelty Free</span>
+        <span class="fb">🏳️‍🌈 Inclusive</span>
+        <span class="fb">♀ Female Owned</span>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Navigate</h4>
+      <ul>
+        <li><a href="#about">The Booth</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services">Nail Art Levels</a></li>
+        <li><a href="#services">BIAB & Extensions</a></li>
+        <li><a href="#services">Junk Nails</a></li>
+        <li><a href="#services">Chrome & Cat Eye</a></li>
+        <li><a href="#services">Themed Sets</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Find Us</h4>
+      <ul>
+        <li><a href="#">4th Floor, 18–22 Lloyd St</a></li>
+        <li><a href="#">Manchester M2 5WA</a></li>
+        <li><a href="https://instagram.com/confessionbooth_mcr">@confessionbooth_mcr</a></li>
+        <li><a href="#book">Book Direct →</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2025 Confession Booth MCR · All rights reserved</span>
+    <a class="footer-ig" href="https://instagram.com/confessionbooth_mcr">→ Follow the Chaos on IG</a>
+  </div>
+</footer>
+
+<script>
+// Scroll reveal
+const ro = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('in'); });
+}, { threshold:0.08 });
+document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+
+// FAQ toggle
+function toggleFaq(el) {
+  const item = el.parentElement;
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if(!wasOpen) item.classList.add('open');
+}
+
+// Gallery filters (visual only for demo)
+document.querySelectorAll('.gf-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.gf-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
